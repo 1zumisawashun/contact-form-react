@@ -3,8 +3,8 @@ import { ErrorBoundary } from 'react-error-boundary'
 import { HelmetProvider } from 'react-helmet-async'
 import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from '@mui/material/styles'
-import { ErrorFallback, theme } from '@/functions/libs'
-import { Loading } from '@/components/uis'
+import { theme } from '@/functions/libs'
+import { Loading, ErrorFallback } from '@/components/uis'
 
 type AppProviderProps = {
   children: ReactNode

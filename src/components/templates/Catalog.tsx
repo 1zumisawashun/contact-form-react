@@ -1,5 +1,6 @@
 import { useState, BaseSyntheticEvent } from 'react'
 import { styled } from '@mui/material/styles'
+import { useErrorBoundary } from 'react-error-boundary'
 import { CatalogCard } from '@/components/models'
 import {
   Button,
@@ -8,7 +9,9 @@ import {
   InputRadioGroup,
   InputCheckboxDisclosure,
   Panel,
-  Table
+  Table,
+  ErrorMessage,
+  Loading
 } from '@/components/uis'
 import { useDisclosure } from '@/functions/hooks'
 import { oneHundredText, fiveHundredText } from '@/functions/constants/texts'
@@ -31,12 +34,36 @@ export const Catalog: React.FC = () => {
   const [radio, setRadio] = useState<string>('')
 
   const inputCheckboxDisclosure = useDisclosure()
+  const loading = useDisclosure()
+  const { showBoundary } = useErrorBoundary()
 
   const handleRadio = (e: BaseSyntheticEvent) => {
     setRadio(e.target.value)
   }
   return (
     <GapWrapper>
+      <CatalogCard title="ErrorMessage">
+        <ErrorMessage message="message" />
+      </CatalogCard>
+
+      <CatalogCard title="react-error-boundary">
+        <Button onClick={() => showBoundary(new Error('bomb!'))}>bomb!</Button>
+      </CatalogCard>
+
+      <CatalogCard title="Loading">
+        <Button
+          onClick={async () => {
+            loading.open()
+            // eslint-disable-next-line
+            await new Promise((resolve) => setTimeout(resolve, 3000))
+            loading.close()
+          }}
+        >
+          Loading
+        </Button>
+        {loading.isOpen && <Loading />}
+      </CatalogCard>
+
       <CatalogCard title="Table">
         <Table options={options} />
       </CatalogCard>
@@ -106,6 +133,17 @@ export const Catalog: React.FC = () => {
           annotation="annotation"
           isRequired
         />
+        <p>※エラー発生時はErrorMessageコンポーネントと一緒に使う</p>
+        <ErrorMessage message="message" />
+        <InputRadioGroup
+          options={options}
+          label="label"
+          name="default"
+          value={radio}
+          onChange={(e) => handleRadio(e)}
+          annotation="annotation"
+          isRequired
+        />
         <InputRadioGroup
           options={options}
           label="label"
@@ -127,7 +165,16 @@ export const Catalog: React.FC = () => {
           value={inputCheckboxDisclosure.isOpen}
           checkboxLabel="checkboxLabel"
         />
-
+        <p>※エラー発生時はErrorMessageコンポーネントと一緒に使う</p>
+        <ErrorMessage message="message" />
+        <InputCheckboxDisclosure
+          label="label"
+          annotation="annotation"
+          isRequired
+          onChange={inputCheckboxDisclosure.toggle}
+          value={inputCheckboxDisclosure.isOpen}
+          checkboxLabel="checkboxLabel"
+        />
         <InputCheckboxDisclosure
           label="label"
           annotation="annotation"
