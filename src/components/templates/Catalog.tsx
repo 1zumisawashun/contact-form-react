@@ -1,4 +1,4 @@
-import { useState, BaseSyntheticEvent } from 'react'
+import { useState } from 'react'
 import { styled } from '@mui/material/styles'
 import { useErrorBoundary } from 'react-error-boundary'
 import { CatalogCard } from '@/components/models'
@@ -11,7 +11,8 @@ import {
   Panel,
   Table,
   ErrorMessage,
-  Loading
+  Loading,
+  PrintObject
 } from '@/components/uis'
 import { useDisclosure } from '@/functions/hooks'
 import { oneHundredText, fiveHundredText } from '@/functions/constants/texts'
@@ -31,11 +32,12 @@ export const Catalog: React.FC = () => {
   const loading = useDisclosure()
   const { showBoundary } = useErrorBoundary()
 
-  const handleRadio = (e: BaseSyntheticEvent) => {
-    setRadio(e.target.value)
-  }
   return (
     <GapWrapper>
+      <CatalogCard title="PrintObject">
+        <PrintObject content={catalogOptions} />
+      </CatalogCard>
+
       <CatalogCard title="ErrorMessage">
         <ErrorMessage message="message" />
       </CatalogCard>
@@ -144,7 +146,7 @@ export const Catalog: React.FC = () => {
           label="label"
           name="default"
           value={radio}
-          onChange={(e) => handleRadio(e)}
+          onChange={(e) => setRadio(e.target.value)}
           annotation="annotation"
           isRequired
         />
@@ -155,7 +157,7 @@ export const Catalog: React.FC = () => {
           label="label"
           name="default"
           value={radio}
-          onChange={(e) => handleRadio(e)}
+          onChange={(e) => setRadio(e.target.value)}
           annotation="annotation"
           isRequired
         />
@@ -164,7 +166,7 @@ export const Catalog: React.FC = () => {
           label="label"
           name="default"
           value={radio}
-          onChange={(e) => handleRadio(e)}
+          onChange={(e) => setRadio(e.target.value)}
           annotation="annotation"
           isRequired
           disabled

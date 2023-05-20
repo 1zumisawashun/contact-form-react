@@ -5,7 +5,6 @@ import logo from '@/assets/react.svg'
 
 const CustomAppbar = styled(AppBar)<{ theme?: Theme }>`
   background: white;
-  /* box-shadow: none; */
   padding: 0;
   z-index: ${({ theme }) => theme.zIndex.drawer + 2};
 `
@@ -29,7 +28,7 @@ export const Header: React.FC = () => {
         <img src={logo} alt="" />
 
         <LinkWrapper>
-          <Link to="/">index</Link>
+          <Link to="/">home</Link>
           <Link to="/catalog">catalog</Link>
           <Link to="/contact">contact</Link>
         </LinkWrapper>

@@ -7,8 +7,8 @@ export type UseActiveStep = {
   reset: () => void
 }
 
-export const useActiveStep = (): UseActiveStep => {
-  const [activeStep, setActiveStep] = useState(0)
+export const useActiveStep = (initial = 0): UseActiveStep => {
+  const [activeStep, setActiveStep] = useState(initial)
 
   const back = useCallback(() => setActiveStep((prev) => prev - 1), [])
   const next = useCallback(() => setActiveStep((prev) => prev + 1), [])

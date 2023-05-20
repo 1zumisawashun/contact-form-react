@@ -1,8 +1,7 @@
 import { styled, Theme } from '@mui/material/styles'
+import { Size } from '@/functions/types/Common'
 
-type IconSizeKey = 'small' | 'medium' | 'large'
-
-const ICON_SIZE: { [key in IconSizeKey]: string } = {
+const ICON_SIZE: { [key in Size]: string } = {
   small: '20px',
   medium: '30px',
   large: '40px'
@@ -10,14 +9,13 @@ const ICON_SIZE: { [key in IconSizeKey]: string } = {
 
 export type BaseIconProps = {
   content: string | JSX.Element
-  size: IconSizeKey
+  size: Size
   className?: string
   disabled?: boolean
 }
 
 type BaseParagraphProps = {
-  size: IconSizeKey
-  ischecked?: boolean
+  size: Size
   disabled?: boolean
   theme?: Theme
 }
@@ -62,40 +60,24 @@ const CircleParagraph = styled(BaseParagraph)<BaseParagraphProps>`
   width: ${({ size }) => ICON_SIZE[size]};
 `
 
-/**
- * NOTE:InputCheckboxGroupで使用している
- */
 export const SquareIcon: React.FC<BaseIconProps> = ({
   content,
   size = 'medium',
   className,
   disabled
 }) => (
-  <SquareParagraph
-    size={size}
-    disabled={disabled}
-    className={className}
-    ischecked
-  >
+  <SquareParagraph size={size} disabled={disabled} className={className}>
     {content}
   </SquareParagraph>
 )
 
-/**
- * NOTE:InputRadioGroupで使用している
- */
 export const CircleIcon: React.FC<BaseIconProps> = ({
   content,
   size = 'medium',
   className,
   disabled
 }) => (
-  <CircleParagraph
-    size={size}
-    className={className}
-    disabled={disabled}
-    ischecked
-  >
+  <CircleParagraph size={size} className={className} disabled={disabled}>
     {content}
   </CircleParagraph>
 )

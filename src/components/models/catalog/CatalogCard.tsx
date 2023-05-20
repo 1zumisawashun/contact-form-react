@@ -3,7 +3,7 @@ import { ReactNode } from 'react'
 import { Panel } from '@/components/uis'
 import { BasePanelInner } from '@/functions/themes'
 
-const CatalogContainer = styled(Panel)`
+const CustomPanel = styled(Panel)`
   position: relative;
 `
 const Title = styled('p')`
@@ -26,9 +26,9 @@ export const CatalogCard: React.FC<CatalogCardProps> = ({
   children
 }) => {
   return (
-    <CatalogContainer>
+    <CustomPanel>
       <Title>{title}</Title>
       <BasePanelInner>{children}</BasePanelInner>
-    </CatalogContainer>
+    </CustomPanel>
   )
 }

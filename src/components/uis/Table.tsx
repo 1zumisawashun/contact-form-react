@@ -1,5 +1,5 @@
-import { Fragment, useId } from 'react'
-import styled from '@emotion/styled'
+import { Fragment } from 'react'
+import { styled } from '@mui/material/styles'
 import { Option } from '@/functions/types/Common'
 
 const StyledTable = styled('table')`
@@ -7,7 +7,6 @@ const StyledTable = styled('table')`
   border-spacing: 0;
   width: 100%;
 `
-
 const Th = styled('th')`
   background: #ffecbb;
   border: 1px solid #ffecbb;
@@ -17,7 +16,6 @@ const Th = styled('th')`
   vertical-align: middle;
   width: 30%;
 `
-
 const Td = styled('td')`
   background: white;
   border: 1px solid #ffecbb;
@@ -30,33 +28,34 @@ type TableProps = {
   row?: number
 }
 
-export const Table: React.FC<TableProps> = ({ options, row = 1 }) => {
-  const id = useId()
+type FormattedOptions = Option & { id: string }
 
-  const formattedOptions: Option[][] = options.reduce(
-    (acc: any, val) => {
+export const Table: React.FC<TableProps> = ({ options, row = 1 }) => {
+  const formattedOptions: FormattedOptions[][] = options.reduce(
+    (acc: any, val, index) => {
       const last = acc[acc.length - 1]
       if (last.length === row) {
-        acc.push([val])
+        acc.push([{ id: `table_${index + 1}`, ...val }])
         return acc
       }
-      last.push(val)
+      last.push({ id: `table_${index + 1}`, ...val })
       return acc
     },
     [[]]
   )
+
+  /* eslint-disable react/no-array-index-key */
   return (
     <StyledTable>
       <tbody>
         {formattedOptions.map((formattedOption, index) => {
-          /* eslint-disable react/no-array-index-key */
           return (
-            <tr key={`${id}-${index}`}>
+            <tr key={index}>
               {formattedOption.map((option) => {
                 return (
-                  <Fragment key={`${option.label}`}>
+                  <Fragment key={option.id}>
                     <Th>{option.label}</Th>
-                    <Td>{option?.value || '-'}</Td>
+                    <Td>{option.value}</Td>
                   </Fragment>
                 )
               })}

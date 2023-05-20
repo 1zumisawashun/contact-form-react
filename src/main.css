@@ -161,3 +161,15 @@ body {
 ul {
   list-style-type: none;
 }
+
+/* Code block */
+code,
+pre {
+  font-family: 'SF Mono', 'IBM Plex Mono', 'Menlo', monospace;
+  font-size: 12px;
+  background: rgba(0, 0, 0, 0.03);
+  padding: 12px;
+  border-radius: 5px;
+  max-height: 500px;
+  overflow: auto;
+}

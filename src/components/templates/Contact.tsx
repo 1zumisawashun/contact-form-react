@@ -21,7 +21,7 @@ export const Contact: React.FC = () => {
       {activeStep === 1 && (
         <ContactConfirm next={next} back={back} options={formattedOptions} />
       )}
-      {activeStep === 2 && <ContactComplete />}
+      {activeStep === 2 && <ContactComplete stateUp={stateUp} />}
     </>
   )
 }

@@ -6,14 +6,17 @@ export const BaseText = styled('p')`
   white-space: pre-line;
   word-break: break-all;
   a {
-    color: #0066ff;
+    color: #f58802;
     text-decoration: underline;
   }
   span {
-    color: #cc3c4d;
+    color: #f58802;
     &.-bold {
       font-weight: bold;
     }
+  }
+  &.-bold {
+    font-weight: bold;
   }
   &.-left {
     text-align: left;
@@ -23,5 +26,11 @@ export const BaseText = styled('p')`
   }
   &.-center {
     text-align: center;
+  }
+  &.-success {
+    color: #56bd44;
+  }
+  &.-danger {
+    color: #db1c06;
   }
 `
