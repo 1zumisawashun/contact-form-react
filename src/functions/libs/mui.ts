@@ -10,8 +10,6 @@ export type MuiButtonColor =
   | 'base'
   | 'point'
   | 'danger'
-  | 'positive'
-  | 'negative'
 
 export const theme = createTheme({
   palette: {
@@ -35,18 +33,6 @@ export const theme = createTheme({
       hover: undefined,
       disable: '#C7C7C7',
       background: '#FFF2EE'
-    },
-    positive: {
-      main: '#F58802',
-      hover: '#CF510A',
-      disable: '#B0B0B0',
-      background: '#FFF7EE'
-    },
-    negative: {
-      main: '#535353',
-      hover: '#222222',
-      disable: '#B0B0B0',
-      background: 'white'
     }
   }
 })

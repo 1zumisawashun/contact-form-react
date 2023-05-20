@@ -91,7 +91,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
 
   return (
     <GapWrapper>
-      <BaseTitle>form</BaseTitle>
+      <BaseTitle>お問い合わせ入力画面</BaseTitle>
 
       <InputText
         label="名前(姓名)"
@@ -163,15 +163,17 @@ export const ContactForm: React.FC<ContactFormProps> = ({
         helperText={errors.tel?.message}
         scrollId="tel"
       />
-      <InputRadioGroup
-        options={options}
-        label="どの製品について"
-        annotation=""
-        isOptioned
-        name="contact_product"
-        control={control}
-        scrollId="contact_product"
-      />
+      <Panel>
+        <InputRadioGroup
+          options={options}
+          label="どの製品について"
+          annotation=""
+          isOptioned
+          name="contact_product"
+          control={control}
+          scrollId="contact_product"
+        />
+      </Panel>
       <InputText
         label="問い合わせ件名"
         annotation=""
@@ -192,8 +194,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
         helperText={errors.contact_content?.message}
         scrollId="contact_content"
       />
-
-      <Panel color="negative" hideBorder>
+      <Panel>
         <InputCheckboxDisclosure
           label="個人情報の保持の同意"
           isRequired

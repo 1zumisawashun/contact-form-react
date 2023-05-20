@@ -22,7 +22,7 @@ export const ContactConfirm: React.FC<ContactConfirmProps> = ({
 }) => {
   return (
     <GapWrapper>
-      <BaseTitle>confirm</BaseTitle>
+      <BaseTitle>お問い合わせ確認画面</BaseTitle>
 
       <Table options={options} />
 

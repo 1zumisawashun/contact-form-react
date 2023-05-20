@@ -1,6 +1,5 @@
 import { ReactNode } from 'react'
 import { styled, Theme } from '@mui/material/styles'
-import { mediaQuery } from '@/functions/helpers'
 import { MuiButtonColor } from '@/functions/libs/mui'
 
 type StyledPanelProps = {
@@ -16,7 +15,6 @@ const background = (props: StyledPanelProps) => {
   const { color, theme } = props
   if (!color || !theme) return 'white'
   if (color === 'danger') return theme.palette.danger.background
-  if (color === 'negative') return '#FAFAFA'
   return theme.palette[color].background
 }
 
@@ -40,18 +38,6 @@ const StyledPanel = styled('div')<StyledPanelProps>`
   padding: 20px;
   &:hover {
     opacity: ${({ onClick }) => (onClick ? `0.7` : `auto`)};
-  }
-  &.-hide-border {
-    border-left: none;
-    border-radius: 0px;
-    border-right: none;
-  }
-  &.-sp-hide-border {
-    ${mediaQuery('sp')} {
-      border-left: none;
-      border-radius: 0px;
-      border-right: none;
-    }
   }
 `
 

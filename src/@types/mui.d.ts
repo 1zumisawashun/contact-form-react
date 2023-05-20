@@ -23,15 +23,11 @@ declare module '@mui/material/styles/createPalette' {
     base: CustomPaletteColorOptions
     point: CustomPaletteColorOptions
     danger: CustomPaletteColorOptions
-    positive: CustomPaletteColorOptions
-    negative: CustomPaletteColorOptions
   }
   interface PaletteOptions {
     base: CustomPaletteColorOptions
     point: CustomPaletteColorOptions
     danger: CustomPaletteColorOptions
-    positive: CustomPaletteColorOptions
-    negative: CustomPaletteColorOptions
   }
 
   interface PaletteColor extends CustomPaletteColorOptions {}

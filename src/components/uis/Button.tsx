@@ -23,7 +23,6 @@ type Action = 'hover' | 'disable'
 const background = (props: Props, action?: Action) => {
   const { variant, color, theme } = props
   const { main, disable, hover, background } = theme.palette[color]
-  const isNeutralColor = ['positive', 'negative'].includes(color)
 
   if (variant === 'contained') {
     if (action === 'hover') return hover ?? main
@@ -33,19 +32,12 @@ const background = (props: Props, action?: Action) => {
 
   if (variant === 'outlined') return 'white'
 
-  if (variant === 'neutral') {
-    if (action === 'hover') return isNeutralColor ? background : 'white'
-    if (action === 'disable') return '#E3E3E3'
-    return isNeutralColor ? background : 'white'
-  }
-
   return main
 }
 
 const color = (props: Props, action?: Action) => {
   const { variant, color, theme } = props
   const { main, disable, hover } = theme.palette[color]
-  const isNeutralColor = ['positive', 'negative'].includes(color)
 
   if (variant === 'contained') return 'white'
 
@@ -55,30 +47,17 @@ const color = (props: Props, action?: Action) => {
     return main
   }
 
-  if (variant === 'neutral') {
-    if (action === 'hover') return isNeutralColor ? hover : '#535353'
-    if (action === 'disable') return '#B0B0B0'
-    return isNeutralColor ? main : '#535353'
-  }
-
   return main
 }
 
 const border = (props: Props, action?: Action) => {
   const { variant, color, theme } = props
   const { main, disable, hover } = theme.palette[color]
-  const isNeutralColor = ['positive', 'negative'].includes(color)
 
   if (variant === 'contained' || variant === 'outlined') {
     if (action === 'hover') return hover ?? main
     if (action === 'disable') return disable ?? null
     return main
-  }
-
-  if (variant === 'neutral') {
-    if (action === 'hover') return isNeutralColor ? hover : '#535353'
-    if (action === 'disable') return '#B0B0B0'
-    return isNeutralColor ? main : '#D3D3D3'
   }
 
   return main
@@ -87,17 +66,6 @@ const border = (props: Props, action?: Action) => {
 const opacity = (props: Props) => {
   const { color, theme } = props
   return theme.palette[color].hover ? 'unset' : '0.7'
-}
-
-const svg = (props: Props) => {
-  const { variant, color } = props
-  if (variant === 'neutral' && color === 'positive') {
-    return '#CF510A'
-  }
-  if (variant === 'neutral' && color === 'negative') {
-    return '#222222'
-  }
-  return null
 }
 
 const CustomBaseButton = styled(BaseButton)<ButtonUnstyledType>`
@@ -111,15 +79,6 @@ const CustomBaseButton = styled(BaseButton)<ButtonUnstyledType>`
     color: ${(props) => color(props, 'hover')};
     cursor: pointer;
     opacity: ${(props) => opacity(props)};
-    svg > g > path.-active-stroke {
-      stroke: ${(props) => svg(props)};
-    }
-    svg > g > rect.-active-stroke {
-      stroke: ${(props) => svg(props)};
-    }
-    svg > g > rect.-active-fill {
-      fill: ${(props) => svg(props)};
-    }
   }
 
   &.${buttonClasses.disabled} {
@@ -129,15 +88,6 @@ const CustomBaseButton = styled(BaseButton)<ButtonUnstyledType>`
     cursor: unset;
     :hover {
       opacity: unset;
-      svg > g > path.-active-stroke {
-        stroke: #b0b0b0;
-      }
-      svg > g > rect.-active-stroke {
-        stroke: #b0b0b0;
-      }
-      svg > g > rect.-active-fill {
-        fill: #b0b0b0;
-      }
     }
   }
 `

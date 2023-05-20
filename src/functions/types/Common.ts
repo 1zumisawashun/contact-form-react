@@ -1,4 +1,4 @@
-export type Variant = 'contained' | 'outlined' | 'neutral'
+export type Variant = 'contained' | 'outlined'
 
 export type Width = 'full' | 'half' | 'quarter' | 'auto'
 

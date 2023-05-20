@@ -11,7 +11,7 @@ const GapWrapper = styled('div')`
 export const ContactComplete: React.FC = () => {
   return (
     <GapWrapper>
-      <BaseTitle>complete</BaseTitle>
+      <BaseTitle>お問い合わせ完了画面</BaseTitle>
       <BaseButtonWrapper>
         <Button>ホーム画面に戻る</Button>
       </BaseButtonWrapper>

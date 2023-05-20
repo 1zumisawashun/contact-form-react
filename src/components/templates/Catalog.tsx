@@ -15,6 +15,7 @@ import {
 } from '@/components/uis'
 import { useDisclosure } from '@/functions/hooks'
 import { oneHundredText, fiveHundredText } from '@/functions/constants/texts'
+import { BaseButtonWrapper } from '@/functions/themes'
 
 const GapWrapper = styled('div')`
   display: grid;
@@ -72,26 +73,47 @@ export const Catalog: React.FC = () => {
         <Panel canScroll>{fiveHundredText}</Panel>
         <Panel>{oneHundredText}</Panel>
         <Panel hideBorder>{oneHundredText}</Panel>
-
-        <Panel color="negative" canScroll>
-          {fiveHundredText}
-        </Panel>
-        <Panel color="negative">{oneHundredText}</Panel>
-        <Panel color="negative" hideBorder>
-          {oneHundredText}
-        </Panel>
-
-        <Panel color="positive" canScroll>
-          {fiveHundredText}
-        </Panel>
-        <Panel color="positive">{oneHundredText}</Panel>
-        <Panel color="positive" hideBorder>
-          {oneHundredText}
-        </Panel>
       </CatalogCard>
 
       <CatalogCard title="Button">
+        <BaseButtonWrapper>
+          <div>
+            <Button size="small">Button</Button>
+          </div>
+          <div>
+            <Button size="medium">Button</Button>
+          </div>
+          <div>
+            <Button size="large">Button</Button>
+          </div>
+        </BaseButtonWrapper>
         <Button>Button</Button>
+        <Button isLoading>Button</Button>
+        <Button disabled>Button</Button>
+        <BaseButtonWrapper>
+          <div>
+            <Button size="small" variant="outlined">
+              Button
+            </Button>
+          </div>
+          <div>
+            <Button size="medium" variant="outlined">
+              Button
+            </Button>
+          </div>
+          <div>
+            <Button size="large" variant="outlined">
+              Button
+            </Button>
+          </div>
+        </BaseButtonWrapper>
+        <Button variant="outlined">Button</Button>
+        <Button isLoading variant="outlined">
+          Button
+        </Button>
+        <Button disabled variant="outlined">
+          Button
+        </Button>
       </CatalogCard>
 
       <CatalogCard title="InputText">
