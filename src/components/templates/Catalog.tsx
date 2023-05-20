@@ -16,20 +16,13 @@ import {
 import { useDisclosure } from '@/functions/hooks'
 import { oneHundredText, fiveHundredText } from '@/functions/constants/texts'
 import { BaseButtonWrapper } from '@/functions/themes'
+import { catalogOptions } from '@/functions/constants/options'
 
 const GapWrapper = styled('div')`
   display: grid;
   gap: 20px;
   padding: 20px;
 `
-
-const options = [
-  { value: 'bed', label: 'Bed' },
-  { value: 'blanket', label: 'Blanket' },
-  { value: 'chair', label: 'Chair' },
-  { value: 'lamp', label: 'Lamp' },
-  { value: 'plant', label: 'Plant' }
-]
 
 export const Catalog: React.FC = () => {
   const [radio, setRadio] = useState<string>('')
@@ -66,7 +59,7 @@ export const Catalog: React.FC = () => {
       </CatalogCard>
 
       <CatalogCard title="Table">
-        <Table options={options} />
+        <Table options={catalogOptions} />
       </CatalogCard>
 
       <CatalogCard title="Panel">
@@ -147,7 +140,7 @@ export const Catalog: React.FC = () => {
 
       <CatalogCard title="InputRadioGroup">
         <InputRadioGroup
-          options={options}
+          options={catalogOptions}
           label="label"
           name="default"
           value={radio}
@@ -158,7 +151,7 @@ export const Catalog: React.FC = () => {
         <p>※エラー発生時はErrorMessageコンポーネントと一緒に使う</p>
         <ErrorMessage message="message" />
         <InputRadioGroup
-          options={options}
+          options={catalogOptions}
           label="label"
           name="default"
           value={radio}
@@ -167,7 +160,7 @@ export const Catalog: React.FC = () => {
           isRequired
         />
         <InputRadioGroup
-          options={options}
+          options={catalogOptions}
           label="label"
           name="default"
           value={radio}

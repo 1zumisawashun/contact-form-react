@@ -16,19 +16,13 @@ import { BaseButtonWrapper, BaseTitle } from '@/functions/themes'
 import { ContactSchema } from '@/functions/hooks/useContact'
 import { ContactFormSchema } from '@/functions/helpers'
 import { scrollHook } from '@/functions/libs'
+import { contactOptions } from '@/functions/constants/options'
 
 const GapWrapper = styled('div')`
   display: grid;
   gap: 20px;
   padding: 20px;
 `
-
-const options = [
-  { value: 'a', label: 'Aサービスについて' },
-  { value: 'b', label: 'Bサービスについて' },
-  { value: 'c', label: 'Cサービスについて' },
-  { value: 'd', label: 'その他' }
-]
 
 type ContactFormProps = {
   next: () => void
@@ -165,7 +159,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
       />
       <Panel>
         <InputRadioGroup
-          options={options}
+          options={contactOptions}
           label="どの製品について"
           annotation=""
           isOptioned

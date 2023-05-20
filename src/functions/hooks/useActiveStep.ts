@@ -1,6 +1,13 @@
 import { useCallback, useState } from 'react'
 
-export const useActiveStep = () => {
+export type UseActiveStep = {
+  activeStep: number
+  back: () => void
+  next: () => void
+  reset: () => void
+}
+
+export const useActiveStep = (): UseActiveStep => {
   const [activeStep, setActiveStep] = useState(0)
 
   const back = useCallback(() => setActiveStep((prev) => prev - 1), [])
