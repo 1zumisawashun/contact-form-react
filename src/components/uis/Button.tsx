@@ -2,21 +2,19 @@ import { ReactNode, ElementType, ComponentPropsWithoutRef } from 'react'
 import { buttonClasses } from '@mui/base/Button'
 import { CircularProgress } from '@mui/material'
 import { styled, Theme } from '@mui/material/styles'
-import { MuiButtonColor } from '@/functions/libs/mui'
+import { MuiColor } from '@/functions/libs/mui'
 import { Variant } from '@/functions/types/Common'
 import { BaseButton, BaseButtonProps } from './BaseButton'
 
-type ButtonUnstyledType = {
-  variant: Variant
-  active?: boolean
-} & Color
 type Props = {
   variant: Variant
   theme: Theme
-} & Color
-type Color = {
-  color: MuiButtonColor
+  color: MuiColor
 }
+
+type ButtonUnstyledType = Omit<Props, 'theme'>
+
+type Color = Pick<Props, 'color'>
 
 type Action = 'hover' | 'disable'
 
@@ -101,12 +99,11 @@ const CustomCircularProgress = styled(CircularProgress)<Color>`
 
 type ButtonProps<T extends ElementType> = {
   children: ReactNode
-  color?: MuiButtonColor
+  color?: MuiColor
   variant?: Variant
   type?: 'button' | 'submit' | 'reset'
   disabled?: boolean
   isLoading?: boolean
-  active?: boolean
   tag?: T
 } & Omit<ComponentPropsWithoutRef<T>, 'tag'> &
   Omit<BaseButtonProps, 'children'>

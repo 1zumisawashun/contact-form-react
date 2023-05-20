@@ -1,6 +1,6 @@
 import { createTheme } from '@mui/material/styles'
 
-export type MuiButtonColor =
+export type MuiColor =
   | 'primary'
   | 'secondary'
   | 'success'

@@ -5,13 +5,13 @@ export const useNavigate = () => {
     window.location.href = url
   }, [])
 
-  const navigateBlank = (url: string) => {
+  const navigateBlank = useCallback((url: string) => {
     window.open(url, '_blank', 'noreferrer')
-  }
+  }, [])
 
-  const reload = () => {
+  const reload = useCallback(() => {
     window.location.reload()
-  }
+  }, [])
 
   const pathname = useMemo(() => {
     return window.location.pathname

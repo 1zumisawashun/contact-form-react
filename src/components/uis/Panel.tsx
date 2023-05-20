@@ -1,10 +1,10 @@
 import { ReactNode } from 'react'
 import { styled, Theme } from '@mui/material/styles'
-import { MuiButtonColor } from '@/functions/libs/mui'
+import { MuiColor } from '@/functions/libs/mui'
 
 type StyledPanelProps = {
   theme?: Theme
-  color?: MuiButtonColor
+  color?: MuiColor
   canScroll?: boolean
   hideBorder?: boolean
   onClick?: () => void
