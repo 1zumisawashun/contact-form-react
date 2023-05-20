@@ -1,6 +1,14 @@
 import { styled } from '@mui/material/styles'
+import { ReactNode, useState, BaseSyntheticEvent } from 'react'
 import { Head } from '@/components/layouts'
-import { Button } from '@/components/uis'
+import {
+  Button,
+  InputText,
+  InputTextarea,
+  InputRadioGroup,
+  InputCheckboxDisclosure
+} from '@/components/uis'
+import { useDisclosure } from '@/functions/hooks'
 
 const Container = styled('div')`
   background-color: 'white';
@@ -11,10 +19,6 @@ const Container = styled('div')`
 const Inner = styled('div')`
   margin: auto;
   width: 60%;
-`
-const FormContainer = styled('div')`
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  padding-bottom: 40px;
 `
 const ComponentContainer = styled('div')`
   background: white;
@@ -38,21 +42,128 @@ const ComponentTitle = styled('p')`
   position: absolute;
   top: -16px;
 `
+type ComponentLayoutProps = {
+  title: string
+  children: ReactNode
+}
+
+const ComponentLayout: React.FC<ComponentLayoutProps> = ({
+  title,
+  children
+}) => {
+  return (
+    <ComponentContainer>
+      <ComponentTitle>{title}</ComponentTitle>
+      <ComponentGap>{children}</ComponentGap>
+    </ComponentContainer>
+  )
+}
 
 export const Catalog: React.FC = () => {
+  const [radio, setRadio] = useState<string>('')
+
+  const inputCheckboxDisclosure = useDisclosure()
+
+  const handleRadio = (e: BaseSyntheticEvent) => {
+    setRadio(e.target.value)
+  }
   return (
     <>
       <Head title="catalog" />
       <Container>
         <Inner>
-          <FormContainer>
-            <ComponentContainer>
-              <ComponentTitle>Button</ComponentTitle>
-              <ComponentGap>
-                <Button>Button</Button>
-              </ComponentGap>
-            </ComponentContainer>
-          </FormContainer>
+          <ComponentLayout title="Button">
+            <Button>Button</Button>
+          </ComponentLayout>
+
+          <ComponentLayout title="InputText">
+            <InputText label="label" annotation="annotation" isRequired />
+            <InputText
+              label="label"
+              annotation="annotation"
+              isRequired
+              error
+              helperText="helperText"
+            />
+            <InputText
+              label="label"
+              annotation="annotation"
+              isRequired
+              disabled
+            />
+          </ComponentLayout>
+
+          <ComponentLayout title="InputTextarea">
+            <InputTextarea label="label" annotation="annotation" isRequired />
+            <InputTextarea
+              label="label"
+              annotation="annotation"
+              isRequired
+              error
+              helperText="helperText"
+            />
+            <InputTextarea
+              label="label"
+              annotation="annotation"
+              isRequired
+              disabled
+            />
+          </ComponentLayout>
+
+          <ComponentLayout title="InputRadioGroup">
+            <InputRadioGroup
+              options={[
+                { value: 'bed', label: 'Bed' },
+                { value: 'blanket', label: 'Blanket' },
+                { value: 'chair', label: 'Chair' },
+                { value: 'lamp', label: 'Lamp' },
+                { value: 'plant', label: 'Plant' }
+              ]}
+              label="label"
+              name="default"
+              value={radio}
+              onChange={(e) => handleRadio(e)}
+              annotation="annotation"
+              isRequired
+            />
+            <InputRadioGroup
+              options={[
+                { value: 'bed', label: 'Bed' },
+                { value: 'blanket', label: 'Blanket' },
+                { value: 'chair', label: 'Chair' },
+                { value: 'lamp', label: 'Lamp' },
+                { value: 'plant', label: 'Plant' }
+              ]}
+              label="label"
+              name="default"
+              value={radio}
+              onChange={(e) => handleRadio(e)}
+              annotation="annotation"
+              isRequired
+              disabled
+            />
+          </ComponentLayout>
+
+          <ComponentLayout title="InputCheckboxDisclosure">
+            <InputCheckboxDisclosure
+              label="label"
+              annotation="annotation"
+              isRequired
+              onChange={inputCheckboxDisclosure.toggle}
+              value={inputCheckboxDisclosure.isOpen}
+              checkboxLabel="checkboxLabel"
+            />
+
+            <InputCheckboxDisclosure
+              label="label"
+              annotation="annotation"
+              isRequired
+              onChange={inputCheckboxDisclosure.toggle}
+              value={inputCheckboxDisclosure.isOpen}
+              checkboxLabel="checkboxLabel"
+              disabled
+            />
+          </ComponentLayout>
         </Inner>
       </Container>
     </>
