@@ -1,19 +1,10 @@
 import { styled } from '@mui/material/styles'
 import { ReactNode } from 'react'
+import { Panel } from '@/components/uis'
+import { BasePanelInner } from '@/functions/themes'
 
-const CatalogContainer = styled('div')`
-  background: white;
-  border: 1px solid black;
-  border-radius: 4px;
-  margin-top: 40px;
-  padding: 16px;
-  padding-bottom: 8px;
+const CatalogContainer = styled(Panel)`
   position: relative;
-`
-const GapWrapper = styled('div')`
-  display: grid;
-  gap: 20px;
-  padding: 20px;
 `
 const Title = styled('p')`
   background-color: white;
@@ -24,6 +15,7 @@ const Title = styled('p')`
   position: absolute;
   top: -16px;
 `
+
 type CatalogCardProps = {
   title: string
   children: ReactNode
@@ -36,7 +28,7 @@ export const CatalogCard: React.FC<CatalogCardProps> = ({
   return (
     <CatalogContainer>
       <Title>{title}</Title>
-      <GapWrapper>{children}</GapWrapper>
+      <BasePanelInner>{children}</BasePanelInner>
     </CatalogContainer>
   )
 }

@@ -4,9 +4,8 @@ import { Head, Header } from '@/components/layouts'
 import { mediaQuery } from '@/functions/helpers'
 
 const Container = styled('div')`
-  background-color: white;
   margin-top: 60px;
-  min-height: 300px;
+  min-height: calc(100vh - 60px);
 `
 const Inner = styled('div')`
   margin: auto;

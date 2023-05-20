@@ -1,4 +1,5 @@
 import { useState, BaseSyntheticEvent } from 'react'
+import { styled } from '@mui/material/styles'
 import { CatalogCard } from '@/components/models'
 import {
   Button,
@@ -10,6 +11,13 @@ import {
   Table
 } from '@/components/uis'
 import { useDisclosure } from '@/functions/hooks'
+import { oneHundredText, fiveHundredText } from '@/functions/constants/texts'
+
+const GapWrapper = styled('div')`
+  display: grid;
+  gap: 20px;
+  padding: 20px;
+`
 
 const options = [
   { value: 'bed', label: 'Bed' },
@@ -18,12 +26,6 @@ const options = [
   { value: 'lamp', label: 'Lamp' },
   { value: 'plant', label: 'Plant' }
 ]
-
-const fiveHundredText =
-  'これはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれ'
-
-const oneHundredText =
-  'これはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテ'
 
 export const Catalog: React.FC = () => {
   const [radio, setRadio] = useState<string>('')
@@ -34,7 +36,7 @@ export const Catalog: React.FC = () => {
     setRadio(e.target.value)
   }
   return (
-    <>
+    <GapWrapper>
       <CatalogCard title="Table">
         <Table options={options} />
       </CatalogCard>
@@ -136,6 +138,6 @@ export const Catalog: React.FC = () => {
           disabled
         />
       </CatalogCard>
-    </>
+    </GapWrapper>
   )
 }

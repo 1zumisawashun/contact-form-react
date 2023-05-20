@@ -7,3 +7,4 @@ export { InputRadioGroup } from './InputRadioGroup'
 
 export { Panel } from './Panel'
 export { Table } from './Table'
+export { Loading } from './Loading'

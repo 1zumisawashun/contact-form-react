@@ -14,8 +14,6 @@ export const BaseButtonWrapper = styled('div')`
     }
   }
 `
-// export const BaseButtonInner = styled('div')`
-//   align-items: center;
-//   display: flex;
-//   gap: 10px;
-// `
+
+// NOTE:インナーは必要なさそう
+// export const BaseButtonInner = styled('div')``

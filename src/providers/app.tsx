@@ -4,6 +4,7 @@ import { HelmetProvider } from 'react-helmet-async'
 import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from '@mui/material/styles'
 import { ErrorFallback, theme } from '@/functions/libs'
+import { Loading } from '@/components/uis'
 
 type AppProviderProps = {
   children: ReactNode
@@ -11,7 +12,7 @@ type AppProviderProps = {
 
 export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   return (
-    <Suspense fallback={<div>loading...</div>}>
+    <Suspense fallback={<Loading />}>
       <ErrorBoundary FallbackComponent={ErrorFallback}>
         <HelmetProvider>
           <ThemeProvider theme={theme}>
