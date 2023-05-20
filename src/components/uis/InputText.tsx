@@ -87,31 +87,28 @@ export const InputText: React.FC<InputTextProps> = ({
           <Controller
             name={name}
             control={control}
-            render={({ field }) => (
-              <BaseInputText
-                {...field}
-                onChange={onChange}
-                onKeyDown={onKeyDown}
-                onBlur={onBlur}
-                onFocus={onFocus}
-                type={type}
-                name={name}
-                disabled={disabled}
-                autoFocus={autoFocus}
-                placeholder={placeholder}
-                value={value}
-                error={error}
-                helperText={helperText}
-                inputRef={inputRef}
-                size={size}
-                variant={variant}
-                width={width}
-                inputProps={{
-                  maxLength,
-                  readOnly
-                }}
-              />
-            )}
+            render={({ field }) => {
+              return (
+                <BaseInputText
+                  {...field}
+                  id={label}
+                  type={type}
+                  disabled={disabled}
+                  autoFocus={autoFocus}
+                  placeholder={placeholder}
+                  error={error}
+                  helperText={helperText}
+                  inputRef={inputRef}
+                  size={size}
+                  variant={variant}
+                  width={width}
+                  inputProps={{
+                    maxLength,
+                    readOnly
+                  }}
+                />
+              )
+            }}
           />
         ) : (
           <BaseInputText

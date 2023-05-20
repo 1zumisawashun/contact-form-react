@@ -1,6 +1,7 @@
 import { styled } from '@mui/material/styles'
 import { InputCheckboxDisclosure, Button, Table } from '@/components/uis'
 import { BaseButtonWrapper, BaseTitle } from '@/functions/themes'
+import { Option } from '@/functions/types/Common'
 
 const GapWrapper = styled('div')`
   display: grid;
@@ -11,18 +12,13 @@ const GapWrapper = styled('div')`
 type ContactConfirmProps = {
   next: () => void
   back: () => void
+  options: Option[]
 }
-
-const options = [
-  { value: 'a', label: 'Aサービスについて' },
-  { value: 'b', label: 'Bサービスについて' },
-  { value: 'c', label: 'Cサービスについて' },
-  { value: 'd', label: 'その他' }
-]
 
 export const ContactConfirm: React.FC<ContactConfirmProps> = ({
   next,
-  back
+  back,
+  options
 }) => {
   return (
     <GapWrapper>

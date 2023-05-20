@@ -80,18 +80,13 @@ export const InputTextarea: React.FC<InputTextareaProps> = ({
           render={({ field }) => (
             <BaseInputText
               {...field}
-              onChange={onChange}
-              onKeyDown={onKeyDown}
-              onBlur={onBlur}
-              onFocus={onFocus}
+              id={label}
               error={error}
               helperText={helperText}
               multiline
               rows={4}
               tabIndex={0}
-              id={label}
               type={type}
-              name={name}
               disabled={disabled}
               autoFocus={autoFocus}
               placeholder={placeholder}
