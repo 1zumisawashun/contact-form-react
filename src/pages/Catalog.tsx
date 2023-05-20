@@ -6,7 +6,9 @@ import {
   InputText,
   InputTextarea,
   InputRadioGroup,
-  InputCheckboxDisclosure
+  InputCheckboxDisclosure,
+  Panel,
+  Table
 } from '@/components/uis'
 import { useDisclosure } from '@/functions/hooks'
 
@@ -58,6 +60,19 @@ const ComponentLayout: React.FC<ComponentLayoutProps> = ({
     </ComponentContainer>
   )
 }
+const options = [
+  { value: 'bed', label: 'Bed' },
+  { value: 'blanket', label: 'Blanket' },
+  { value: 'chair', label: 'Chair' },
+  { value: 'lamp', label: 'Lamp' },
+  { value: 'plant', label: 'Plant' }
+]
+
+const fiveHundredText =
+  'これはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれ'
+
+const oneHundredText =
+  'これはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテストこれはテ'
 
 export const Catalog: React.FC = () => {
   const [radio, setRadio] = useState<string>('')
@@ -72,6 +87,32 @@ export const Catalog: React.FC = () => {
       <Head title="catalog" />
       <Container>
         <Inner>
+          <ComponentLayout title="Table">
+            <Table options={options} />
+          </ComponentLayout>
+
+          <ComponentLayout title="Panel">
+            <Panel canScroll>{fiveHundredText}</Panel>
+            <Panel>{oneHundredText}</Panel>
+            <Panel hideBorder>{oneHundredText}</Panel>
+
+            <Panel color="negative" canScroll>
+              {fiveHundredText}
+            </Panel>
+            <Panel color="negative">{oneHundredText}</Panel>
+            <Panel color="negative" hideBorder>
+              {oneHundredText}
+            </Panel>
+
+            <Panel color="positive" canScroll>
+              {fiveHundredText}
+            </Panel>
+            <Panel color="positive">{oneHundredText}</Panel>
+            <Panel color="positive" hideBorder>
+              {oneHundredText}
+            </Panel>
+          </ComponentLayout>
+
           <ComponentLayout title="Button">
             <Button>Button</Button>
           </ComponentLayout>
@@ -112,13 +153,7 @@ export const Catalog: React.FC = () => {
 
           <ComponentLayout title="InputRadioGroup">
             <InputRadioGroup
-              options={[
-                { value: 'bed', label: 'Bed' },
-                { value: 'blanket', label: 'Blanket' },
-                { value: 'chair', label: 'Chair' },
-                { value: 'lamp', label: 'Lamp' },
-                { value: 'plant', label: 'Plant' }
-              ]}
+              options={options}
               label="label"
               name="default"
               value={radio}
@@ -127,13 +162,7 @@ export const Catalog: React.FC = () => {
               isRequired
             />
             <InputRadioGroup
-              options={[
-                { value: 'bed', label: 'Bed' },
-                { value: 'blanket', label: 'Blanket' },
-                { value: 'chair', label: 'Chair' },
-                { value: 'lamp', label: 'Lamp' },
-                { value: 'plant', label: 'Plant' }
-              ]}
+              options={options}
               label="label"
               name="default"
               value={radio}
