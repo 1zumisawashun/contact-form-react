@@ -90,7 +90,6 @@ export const InputTextarea: React.FC<InputTextareaProps> = ({
               disabled={disabled}
               autoFocus={autoFocus}
               placeholder={placeholder}
-              value={value}
               maxRows={maxRows}
               width={width}
               inputProps={{

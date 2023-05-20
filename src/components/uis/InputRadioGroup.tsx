@@ -2,7 +2,7 @@ import { BaseSyntheticEvent } from 'react'
 import MuiCircleIcon from '@mui/icons-material/Circle'
 import { Radio, RadioGroup, FormControlLabel, FormControl } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import { Controller, Control, UseFormRegisterReturn } from 'react-hook-form'
+import { Controller, Control } from 'react-hook-form'
 import { Option } from '@/functions/types/Common'
 import { BaseInputLabel } from './BaseInputLabel'
 import { CircleIcon } from './BaseIcon'
@@ -18,7 +18,6 @@ export type InputRadioGroupProps = {
   // NOTE:react-hook-form
   control?: Control<any>
   name?: any
-  register?: UseFormRegisterReturn
   // NOTE:custom icon
   icon?: JSX.Element
   checkedIcon?: JSX.Element
@@ -47,7 +46,6 @@ export const InputRadioGroup: React.FC<InputRadioGroupProps> = ({
   control,
   name,
   disabled = false,
-  register,
   label = '',
   annotation,
   isRequired = false,
@@ -87,19 +85,19 @@ export const InputRadioGroup: React.FC<InputRadioGroupProps> = ({
                 aria-labelledby={id}
                 name="radio-buttons-group"
                 sx={{ justifyContent: type === 'twoRow' ? 'space-around' : '' }}
-                defaultValue={field.value}
+                value={field.value}
               >
                 {options.map((radio) => {
                   return (
                     <FormControlLabel
                       key={radio.value}
                       label={radio.label}
+                      {...field}
                       control={
                         <Radio
                           size={size}
                           value={radio.value}
                           icon={icon}
-                          {...register}
                           checkedIcon={checkedIcon}
                           disabled={disabled}
                         />

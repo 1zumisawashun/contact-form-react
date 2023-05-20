@@ -15,6 +15,7 @@ import { useDisclosure } from '@/functions/hooks'
 import { BaseButtonWrapper, BaseTitle } from '@/functions/themes'
 import { ContactSchema } from '@/functions/hooks/useContact'
 import { ContactFormSchema } from '@/functions/helpers'
+import { scrollHook } from '@/functions/libs'
 
 const GapWrapper = styled('div')`
   display: grid;
@@ -80,6 +81,12 @@ export const ContactForm: React.FC<ContactFormProps> = ({
 
   const onError: SubmitErrorHandler<ContactSchema> = (errors) => {
     console.log(errors)
+
+    const errorKey = Object.keys(ContactFormSchema.fields).find(
+      (item) => item in errors
+    )
+    if (!errorKey) return
+    scrollHook(errorKey)
   }
 
   return (
