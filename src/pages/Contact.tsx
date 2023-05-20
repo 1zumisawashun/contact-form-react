@@ -1,6 +1,6 @@
 import { styled } from '@mui/material/styles'
+import { Contact as ContactTemplate } from '@/components/templates/Contact'
 import { Head, Header } from '@/components/layouts'
-import { Catalog as CatalogTemplate } from '@/components/templates/Catalog'
 import { mediaQuery } from '@/functions/helpers'
 
 const Container = styled('div')`
@@ -16,14 +16,14 @@ const Inner = styled('div')`
   }
 `
 
-export const Catalog: React.FC = () => {
+export const Contact: React.FC = () => {
   return (
     <>
-      <Head title="catalog" />
+      <Head title="contact" />
       <Header />
       <Container>
         <Inner>
-          <CatalogTemplate />
+          <ContactTemplate />
         </Inner>
       </Container>
     </>

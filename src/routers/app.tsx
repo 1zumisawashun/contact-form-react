@@ -3,6 +3,7 @@ import { lazyImport } from '@/functions/helpers'
 import { useBoolean } from '@/functions/hooks'
 
 const { Catalog } = lazyImport(() => import('../pages/Catalog'), 'Catalog')
+const { Contact } = lazyImport(() => import('../pages/Contact'), 'Contact')
 
 export const AppRoutes = () => {
   const { isLocalhost } = useBoolean()
@@ -11,7 +12,9 @@ export const AppRoutes = () => {
     ? [{ path: '/catalog', element: <Catalog /> }]
     : []
 
-  const element = useRoutes([...catalogRoutes])
+  const publicRoutes = [{ path: '/contact', element: <Contact /> }]
+
+  const element = useRoutes([...catalogRoutes, ...publicRoutes])
 
   return element
 }
