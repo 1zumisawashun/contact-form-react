@@ -3,6 +3,7 @@ import { useErrorBoundary } from 'react-error-boundary'
 import { InputCheckboxDisclosure, Button, Table } from '@/components/uis'
 import { BaseButtonWrapper, BaseTitle } from '@/functions/themes'
 import { Option } from '@/functions/types/Common'
+import { useSlack } from '@/functions/hooks'
 
 const GapWrapper = styled('div')`
   display: grid;
@@ -22,13 +23,13 @@ export const ContactConfirm: React.FC<ContactConfirmProps> = ({
   options
 }) => {
   const { showBoundary } = useErrorBoundary()
+  const { handleSlack } = useSlack()
 
   const handleSubmit = () => {
     try {
-      // NOTE:ここでAPIを叩く
+      handleSlack(options)
       next()
     } catch (error) {
-      // NOTE:activeStep0からやり直しさせたくない場合はshowBoundaryではなくモーダルなどで対応する
       showBoundary(new Error('bomb!'))
     }
   }
