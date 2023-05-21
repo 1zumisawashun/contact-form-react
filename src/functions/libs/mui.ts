@@ -15,13 +15,12 @@ export const theme = createTheme({
   palette: {
     base: {
       main: '#ffffff'
-      // hover: '#CF510A',
-      // disable: '#C7C7C7'
     },
     point: {
       main: '#F58802',
       hover: '#CF510A',
-      disable: '#C7C7C7'
+      disable: '#C7C7C7',
+      light: '#ffecbb'
     },
     success: {
       main: '#56BD44',

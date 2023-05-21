@@ -1,5 +1,5 @@
 import { Fragment } from 'react'
-import { styled } from '@mui/material/styles'
+import { styled, Theme } from '@mui/material/styles'
 import { Option } from '@/functions/types/Common'
 
 const StyledTable = styled('table')`
@@ -7,18 +7,18 @@ const StyledTable = styled('table')`
   border-spacing: 0;
   width: 100%;
 `
-const Th = styled('th')`
-  background: #ffecbb;
-  border: 1px solid #ffecbb;
+const Th = styled('th')<{ theme?: Theme }>`
+  background: ${({ theme }) => theme.palette.point.light};
+  border: 1px solid ${({ theme }) => theme.palette.point.light};
   font-weight: normal;
   padding: 10px;
   text-align: left;
   vertical-align: middle;
   width: 30%;
 `
-const Td = styled('td')`
+const Td = styled('td')<{ theme?: Theme }>`
   background: white;
-  border: 1px solid #ffecbb;
+  border: 1px solid ${({ theme }) => theme.palette.point.light};
   padding: 10px;
   vertical-align: middle;
 `

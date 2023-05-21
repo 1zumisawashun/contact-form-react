@@ -1,10 +1,10 @@
-# eslint-template
+# contact-form-react
 
-eslint-template
+contact-form-react
 
 ## Overview
 
-- https://github.com/1zumisawashun/eslint-template
+- なし
 
 ## 環境
 
@@ -14,7 +14,11 @@ eslint-template
 | react-dom                | 18.2.0     |
 | react-error-boundary              | 4.0.4      |
 | react-helmet-async                  | 1.3.0     |
+| react-hook-form              | 7.43.9      |
+| react-loader-spinner             | 5.3.4     |
 | react-router-dom | 6.11.1     |
+| react-scroll              | 1.8.9      |
+| yup              | 1.1.1      |
 
 ## Installation
 
@@ -49,10 +53,16 @@ http://localhost:5173
 $ npm run commit
 ```
 
-- formatを当てる
+- format（prettier）を当てる
 
 ```bash
-$ npm run lint
+$ npm run format
+```
+
+- format（eslint）を当てる
+
+```bash
+$ npm run lint:js:fix
 ```
 
 ## Troubleshoot
@@ -61,8 +71,6 @@ $ npm run lint
 
 ## その他ドキュメント
 
-See [Configuration Reference](https://cli.vuejs.org/config/).
+See [Configuration Reference](https://react.dev/).
 
-- 依存関係
 
-<img width="700" alt="image" src="https://github.com/1zumisawashun/eslint-template/assets/65071534/7ecd1824-ad88-4713-ab1f-90a6ae98ef65">
