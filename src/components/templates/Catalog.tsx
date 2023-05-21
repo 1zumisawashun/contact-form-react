@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { styled } from '@mui/material/styles'
 import { useErrorBoundary } from 'react-error-boundary'
-import { CatalogCard } from '@/components/models'
 import {
   Button,
   InputText,
@@ -9,6 +8,7 @@ import {
   InputRadioGroup,
   InputCheckboxDisclosure,
   Panel,
+  PanelCard,
   Table,
   ErrorMessage,
   Loading,
@@ -16,7 +16,7 @@ import {
 } from '@/components/uis'
 import { useDisclosure } from '@/functions/hooks'
 import { oneHundredText, fiveHundredText } from '@/functions/constants/texts'
-import { BaseButtonWrapper } from '@/functions/themes'
+import { BaseButtonWrapper, BaseTitle } from '@/functions/themes'
 import { catalogOptions } from '@/functions/constants/options'
 
 const GapWrapper = styled('div')`
@@ -34,19 +34,21 @@ export const Catalog: React.FC = () => {
 
   return (
     <GapWrapper>
-      <CatalogCard title="PrintObject">
+      <BaseTitle>カタログ画面</BaseTitle>
+
+      <PanelCard title="PrintObject">
         <PrintObject content={catalogOptions} />
-      </CatalogCard>
+      </PanelCard>
 
-      <CatalogCard title="ErrorMessage">
+      <PanelCard title="ErrorMessage">
         <ErrorMessage message="message" />
-      </CatalogCard>
+      </PanelCard>
 
-      <CatalogCard title="react-error-boundary">
+      <PanelCard title="react-error-boundary">
         <Button onClick={() => showBoundary(new Error('bomb!'))}>bomb!</Button>
-      </CatalogCard>
+      </PanelCard>
 
-      <CatalogCard title="Loading">
+      <PanelCard title="Loading">
         <Button
           onClick={async () => {
             loading.open()
@@ -58,19 +60,19 @@ export const Catalog: React.FC = () => {
           Loading
         </Button>
         {loading.isOpen && <Loading />}
-      </CatalogCard>
+      </PanelCard>
 
-      <CatalogCard title="Table">
+      <PanelCard title="Table">
         <Table options={catalogOptions} />
-      </CatalogCard>
+      </PanelCard>
 
-      <CatalogCard title="Panel">
+      <PanelCard title="Panel">
         <Panel canScroll>{fiveHundredText}</Panel>
         <Panel>{oneHundredText}</Panel>
         <Panel hideBorder>{oneHundredText}</Panel>
-      </CatalogCard>
+      </PanelCard>
 
-      <CatalogCard title="Button">
+      <PanelCard title="Button">
         <BaseButtonWrapper>
           <div>
             <Button size="small">Button</Button>
@@ -109,9 +111,9 @@ export const Catalog: React.FC = () => {
         <Button disabled variant="outlined">
           Button
         </Button>
-      </CatalogCard>
+      </PanelCard>
 
-      <CatalogCard title="InputText">
+      <PanelCard title="InputText">
         <InputText label="label" annotation="annotation" isRequired />
         <InputText
           label="label"
@@ -121,9 +123,9 @@ export const Catalog: React.FC = () => {
           helperText="helperText"
         />
         <InputText label="label" annotation="annotation" isRequired disabled />
-      </CatalogCard>
+      </PanelCard>
 
-      <CatalogCard title="InputTextarea">
+      <PanelCard title="InputTextarea">
         <InputTextarea label="label" annotation="annotation" isRequired />
         <InputTextarea
           label="label"
@@ -138,9 +140,9 @@ export const Catalog: React.FC = () => {
           isRequired
           disabled
         />
-      </CatalogCard>
+      </PanelCard>
 
-      <CatalogCard title="InputRadioGroup">
+      <PanelCard title="InputRadioGroup">
         <InputRadioGroup
           options={catalogOptions}
           label="label"
@@ -171,9 +173,9 @@ export const Catalog: React.FC = () => {
           isRequired
           disabled
         />
-      </CatalogCard>
+      </PanelCard>
 
-      <CatalogCard title="InputCheckboxDisclosure">
+      <PanelCard title="InputCheckboxDisclosure">
         <InputCheckboxDisclosure
           label="label"
           annotation="annotation"
@@ -201,7 +203,7 @@ export const Catalog: React.FC = () => {
           checkboxLabel="checkboxLabel"
           disabled
         />
-      </CatalogCard>
+      </PanelCard>
     </GapWrapper>
   )
 }

@@ -15,10 +15,10 @@ const Wrapper = styled(FormControl)`
 export type InputRadioGroupProps = {
   // NOTE:アクション
   onChange?: (e: BaseSyntheticEvent) => void // RFCを使わない場合に必要
-  // NOTE:react-hook-form
+  // NOTE:エラー系（react-hook-form）
   control?: Control<any>
   name?: any
-  // NOTE:custom icon
+  // NOTE:必須項目
   icon?: JSX.Element
   checkedIcon?: JSX.Element
   id?: string

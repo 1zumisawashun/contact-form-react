@@ -20,11 +20,13 @@ const CustomCheckBox = styled(Checkbox)`
 `
 
 export interface InputCheckboxDisclosureProps {
+  // NOTE:アクション
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  // NOTE:必須項目
   checkboxLabel: string | ReactJSXElement
   disabled?: boolean
   size?: 'small' | 'medium'
   value: boolean
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
   icon?: JSX.Element
   checkedIcon?: JSX.Element
   scrollId?: string

@@ -1,6 +1,6 @@
 import * as yup from 'yup'
 
-// NOTE: arrow functionを使うとthisを上書きされるので使わない
+// NOTE:arrow functionを使うとthisを上書きされるので使わない
 function onlyNumberValidation(this: any) {
   return this.test(
     'onlyNumber',

@@ -27,7 +27,7 @@ const Layout = () => {
   )
 }
 
-export const elements = () => {
+export const children = () => {
   const isLocalhost = document.location.hostname === 'localhost'
 
   const catalogRoutes = isLocalhost
@@ -46,6 +46,6 @@ export const router = createBrowserRouter([
   {
     path: '/',
     element: <Layout />,
-    children: elements()
+    children: children()
   }
 ])

@@ -8,7 +8,6 @@ const button = {
     full: '100%',
     half: '50%',
     quarter: '25%',
-    mini: '10%',
     auto: 'auto'
   },
   fontSize: {

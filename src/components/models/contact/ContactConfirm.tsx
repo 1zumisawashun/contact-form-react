@@ -25,7 +25,7 @@ export const ContactConfirm: React.FC<ContactConfirmProps> = ({
 
   const handleSubmit = () => {
     try {
-      throw new Error()
+      // NOTE:ここでAPIを叩く
       next()
     } catch (error) {
       // NOTE:activeStep0からやり直しさせたくない場合はshowBoundaryではなくモーダルなどで対応する

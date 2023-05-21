@@ -1,6 +1,7 @@
 import { ReactNode } from 'react'
 import { styled, Theme } from '@mui/material/styles'
 import { MuiColor } from '@/functions/libs/mui'
+import { BasePanelInner } from '@/functions/themes'
 
 type StyledPanelProps = {
   theme?: Theme
@@ -63,5 +64,38 @@ export const Panel: React.FC<PanelProps> = ({
     >
       {children}
     </StyledPanel>
+  )
+}
+
+/**
+ * ========================================
+ * PanelCard
+ * ========================================
+ */
+
+type PanelCardProps = {
+  title: string
+  children: ReactNode
+}
+
+const RelativePanel = styled(Panel)`
+  position: relative;
+`
+const OverlayTitle = styled('p')`
+  background-color: white;
+  font-size: 1.25rem;
+  font-weight: bold;
+  left: 16px;
+  padding: 0 8px;
+  position: absolute;
+  top: -16px;
+`
+
+export const PanelCard: React.FC<PanelCardProps> = ({ title, children }) => {
+  return (
+    <RelativePanel>
+      <OverlayTitle>{title}</OverlayTitle>
+      <BasePanelInner>{children}</BasePanelInner>
+    </RelativePanel>
   )
 }

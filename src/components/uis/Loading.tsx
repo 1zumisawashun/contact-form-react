@@ -12,7 +12,6 @@ const LoadingContainer = styled('div')`
   top: 0;
   z-index: 1300;
 `
-
 const Backdrop = styled('div')`
   background-color: rgba(0, 0, 0, 0.5);
   bottom: 0;
@@ -23,7 +22,6 @@ const Backdrop = styled('div')`
   top: 0;
   z-index: -1;
 `
-
 const Inner = styled('div')`
   left: 50%;
   position: absolute;

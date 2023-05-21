@@ -12,7 +12,7 @@ export { ErrorFallback } from './ErrorFallback'
 export { ErrorMessage } from './ErrorMessage'
 
 /* other */
-export { Panel } from './Panel'
+export { Panel, PanelCard } from './Panel'
 export { Table } from './Table'
 export { Loading } from './Loading'
 export { PrintObject } from './PrintObject'

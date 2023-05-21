@@ -21,6 +21,8 @@ type ContactCompleteProps = {
 export const ContactComplete: React.FC<ContactCompleteProps> = ({
   stateUp
 }) => {
+  console.log(stateUp)
+
   return (
     <GapWrapper>
       <BaseTitle>お問い合わせ完了画面</BaseTitle>

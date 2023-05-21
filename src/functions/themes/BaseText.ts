@@ -1,6 +1,6 @@
-import { styled } from '@mui/material/styles'
+import { styled, Theme } from '@mui/material/styles'
 
-export const BaseText = styled('p')`
+export const BaseText = styled('p')<{ theme?: Theme }>`
   color: #222222;
   font-size: 1rem;
   white-space: pre-line;
@@ -28,9 +28,9 @@ export const BaseText = styled('p')`
     text-align: center;
   }
   &.-success {
-    color: #56bd44;
+    color: ${({ theme }) => theme.palette.success.main};
   }
   &.-danger {
-    color: #db1c06;
+    color: ${({ theme }) => theme.palette.danger.main};
   }
 `

@@ -64,18 +64,11 @@ export const ContactForm: React.FC<ContactFormProps> = ({
   })
 
   const onSubmit: SubmitHandler<ContactSchema> = async (data) => {
-    try {
-      console.log(data)
-      handleStateUp(data)
-      next()
-    } catch (error) {
-      console.log(error)
-    }
+    handleStateUp(data)
+    next()
   }
 
   const onError: SubmitErrorHandler<ContactSchema> = (errors) => {
-    console.log(errors)
-
     const errorKey = Object.keys(ContactFormSchema.fields).find(
       (item) => item in errors
     )
