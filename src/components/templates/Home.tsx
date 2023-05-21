@@ -15,6 +15,9 @@ const UnorderedList = styled('ul')`
   display: grid;
   font-size: 1rem;
   padding: 0 1rem;
+  white-space: pre-line;
+  word-break: break-all;
+  box-sizing: border-box;
   > li {
     list-style: disc;
   }
