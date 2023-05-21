@@ -43,6 +43,11 @@ $ npm run dev
 
 http://localhost:5173
 
+※ 検証の導線やコメント内容などトップページに記載しておりますのでご確認ください。
+
+![image](https://github.com/1zumisawashun/eslint-template/assets/65071534/7eaf5581-045b-4670-85a8-42cc715be31c)
+
+
 - 上記の手順で失敗する場合 [Troubleshoot](#Troubleshoot)を確認してください
 
 ## How to
@@ -73,4 +78,7 @@ $ npm run lint:js:fix
 
 See [Configuration Reference](https://react.dev/).
 
+- UI周りの依存関係
+
+<img width="424" alt="image" src="https://github.com/1zumisawashun/contact-form-react/assets/65071534/f61971c0-e115-4813-a111-d7385ff3cbac">
 
