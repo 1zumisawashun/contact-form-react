@@ -1,5 +1,5 @@
 import { styled } from '@mui/material/styles'
-import { BaseText } from '@/functions/themes'
+import { BaseText, BaseTitle } from '@/functions/themes'
 
 const GapWrapper = styled('div')`
   display: grid;
@@ -18,12 +18,28 @@ const UnorderedList = styled('ul')`
 export const Home: React.FC = () => {
   return (
     <GapWrapper>
-      <BaseText className="-bold">工夫したポイント</BaseText>
+      <BaseTitle>工夫した点</BaseTitle>
+
+      <BaseText className="-bold">react-hook-form</BaseText>
       <UnorderedList>
         <li>バリデエラーに引っ掛かった時はオートスクロールを発火させる</li>
+      </UnorderedList>
+
+      <BaseText className="-bold">react-router</BaseText>
+      <UnorderedList>
+        <li>ScrollRestorationでMPAと同じ挙動にする</li>
+        <li>catalogはローカル環境以外では表示させないハンドリングを追加する</li>
+      </UnorderedList>
+
+      <BaseText className="-bold">環境構築</BaseText>
+      <UnorderedList>
+        <li>eslint, commitlintの導入</li>
+      </UnorderedList>
+
+      <BaseText className="-bold">その他</BaseText>
+      <UnorderedList>
         <li>slackでビジネス側のログとエラーログを取る</li>
         <li>カタログの作成</li>
-        <li>eslint, commitlintの導入</li>
       </UnorderedList>
     </GapWrapper>
   )

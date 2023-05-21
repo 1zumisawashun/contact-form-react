@@ -1,13 +1,34 @@
-import { useRoutes } from 'react-router-dom'
+import { ErrorBoundary } from 'react-error-boundary'
+import {
+  createBrowserRouter,
+  ScrollRestoration,
+  Outlet
+} from 'react-router-dom'
 import { lazyImport } from '@/functions/helpers'
-import { useBoolean } from '@/functions/hooks'
+import { ErrorFallback } from '@/components/uis'
 
 const { Catalog } = lazyImport(() => import('../pages/Catalog'), 'Catalog')
 const { Contact } = lazyImport(() => import('../pages/Contact'), 'Contact')
 const { Home } = lazyImport(() => import('../pages/Home'), 'Home')
 
-export const AppRoutes = () => {
-  const { isLocalhost } = useBoolean()
+/**
+ * createBrowserRouter（ScrollRestoration）を用いたルーターの場合
+ * RouterProviderより上層でreact-error-boundaryのfallbackが表示されない
+ * RouterProvider＞react-error-boundary＞Outletに設置するとfallbackが表示される
+ */
+const Layout = () => {
+  return (
+    <>
+      <ScrollRestoration />
+      <ErrorBoundary FallbackComponent={ErrorFallback}>
+        <Outlet />
+      </ErrorBoundary>
+    </>
+  )
+}
+
+export const elements = () => {
+  const isLocalhost = document.location.hostname === 'localhost'
 
   const catalogRoutes = isLocalhost
     ? [{ path: '/catalog', element: <Catalog /> }]
@@ -18,7 +39,13 @@ export const AppRoutes = () => {
     { path: '/', element: <Home /> }
   ]
 
-  const element = useRoutes([...catalogRoutes, ...publicRoutes])
-
-  return element
+  return [...catalogRoutes, ...publicRoutes]
 }
+
+export const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Layout />,
+    children: elements()
+  }
+])

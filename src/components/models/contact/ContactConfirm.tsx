@@ -1,4 +1,5 @@
 import { styled } from '@mui/material/styles'
+import { useErrorBoundary } from 'react-error-boundary'
 import { InputCheckboxDisclosure, Button, Table } from '@/components/uis'
 import { BaseButtonWrapper, BaseTitle } from '@/functions/themes'
 import { Option } from '@/functions/types/Common'
@@ -20,6 +21,18 @@ export const ContactConfirm: React.FC<ContactConfirmProps> = ({
   back,
   options
 }) => {
+  const { showBoundary } = useErrorBoundary()
+
+  const handleSubmit = () => {
+    try {
+      throw new Error()
+      next()
+    } catch (error) {
+      // NOTE:activeStep0からやり直しさせたくない場合はshowBoundaryではなくモーダルなどで対応する
+      showBoundary(new Error('bomb!'))
+    }
+  }
+
   return (
     <GapWrapper>
       <BaseTitle>お問い合わせ確認画面</BaseTitle>
@@ -36,7 +49,7 @@ export const ContactConfirm: React.FC<ContactConfirmProps> = ({
         <Button variant="outlined" width="half" onClick={back}>
           戻る
         </Button>
-        <Button width="half" onClick={next}>
+        <Button width="half" onClick={handleSubmit}>
           送信する
         </Button>
       </BaseButtonWrapper>
