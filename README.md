@@ -25,8 +25,8 @@ contact-form-react
 - clone
 
 ```bash
-$ git clone git@github.com:1zumisawashun/eslint-template.git
-$ cd eslint-template
+$ git clone git@github.com:1zumisawashun/contact-form-react.git
+$ cd contact-form-react
 ```
 
 - install
