@@ -10,6 +10,7 @@ import { ErrorFallback } from '@/components/uis'
 const { Catalog } = lazyImport(() => import('../pages/Catalog'), 'Catalog')
 const { Contact } = lazyImport(() => import('../pages/Contact'), 'Contact')
 const { Home } = lazyImport(() => import('../pages/Home'), 'Home')
+const { Sample } = lazyImport(() => import('../pages/Sample'), 'Sample')
 
 /**
  * createBrowserRouter（ScrollRestoration）を用いたルーターの場合
@@ -36,7 +37,8 @@ export const children = () => {
 
   const publicRoutes = [
     { path: '/contact', element: <Contact /> },
-    { path: '/', element: <Home /> }
+    { path: '/', element: <Home /> },
+    { path: '/sample', element: <Sample /> }
   ]
 
   return [...catalogRoutes, ...publicRoutes]

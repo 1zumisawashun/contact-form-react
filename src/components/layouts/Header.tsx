@@ -29,6 +29,7 @@ export const Header: React.FC = () => {
 
         <LinkWrapper>
           <Link to="/">home</Link>
+          <Link to="/sample">sample</Link>
           <Link to="/catalog">catalog</Link>
           <Link to="/contact">contact</Link>
         </LinkWrapper>
